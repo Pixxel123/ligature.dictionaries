@@ -1,6 +1,6 @@
-# Tapless dictionaries
+# Ligature dictionaries
 
-Word lists for [Tapless](https://github.com/Pixxel123/tapless.koplugin), the
+Word lists for [Ligature](https://github.com/Pixxel123/ligature.koplugin), the
 swipe keyboard plugin for KOReader. The plugin's dictionary manager reads
 `catalog.json` from this repository's GitHub Pages site and downloads the
 packages from its releases.
