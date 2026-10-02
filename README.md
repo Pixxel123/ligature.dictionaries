@@ -5,6 +5,32 @@ swipe keyboard plugin for KOReader. The plugin's dictionary manager reads
 `catalog.json` from this repository's GitHub Pages site and downloads the
 packages from its releases.
 
+## Version 2.1.0
+
+The words and frequencies of 2.0.0, with two changes:
+
+- **No letters left out.** ß, æ, œ, ð and þ now count as s, a, o, d and t in
+  the letters a swipe is matched against; 2.0.0 left them out, so Danish
+  words with æ (være, hjælp), German ones with ß (Straße) and French ones
+  with œ (cœur) could not be swiped. 13,230 Danish, 2,163 German and 116
+  French rows change, and a few dozen names elsewhere.
+- **Mis-decoded rows left out.** Rows that repeat another row's spelling
+  read in the wrong code page, such as þüphesiz for şüphesiz and siê for
+  się: 12,774 Turkish, 659 Czech and 21 Polish.
+
+Measured on clean swipes over KOReader's own layouts, with Ligature that
+counts these letters, against the same Ligature with 2.0.0 (words fixed /
+broken): +157/−0 on 400 Danish words with å, æ or ø, +29/−0 on 200 German
+words with ß and +29/−0 on 81 French words with œ. Turkish, Czech and Polish
+are unchanged by the rows left out, as are the other languages.
+
+Words with ß and œ still rank low: the 1.0.0 base spells them with ss and
+oe, so their own spellings came from the corpora below every base word.
+
+The packages are the 2.0.0 ones put through
+`tools/resign_dictionary.py --version 2.1.0 --drop-misdecoded` in the
+plugin's repository.
+
 ## Version 2.0.0
 
 Eleven languages: Czech, Danish, Dutch, English, French, German, Italian,
