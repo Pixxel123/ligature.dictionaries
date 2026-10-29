@@ -5,6 +5,37 @@ swipe keyboard plugin for KOReader. The plugin's dictionary manager reads
 `catalog.json` from this repository's GitHub Pages site and downloads the
 packages from its releases.
 
+## Version 2.2.0
+
+English words left out of the ten other languages. Their wordfreq counts
+come from web, subtitle and social media text, which quotes a lot of
+English: the 2.1.0 Portuguese list ranked "the" with "casa" and "and" above
+"livro", so a swipe for a short Portuguese word could come out in English.
+
+A word goes when the English list has it in lower case, English uses it at
+least ten times as often, and Wiktionary doesn't know it in the language.
+Names stay, since English capitalizes them, and so do words both languages
+have, such as Spanish "no" and German "hand", and loanwords used about as
+much as in English, which Wiktionary often lacks, such as Danish "team" and
+Turkish "limit". Rows left out: Czech 2,685, Danish 3,852, Dutch 4,872,
+French 4,357, German 3,355, Italian 5,683, Polish 3,506, Portuguese 5,419,
+Spanish 5,081 and Turkish 2,436. Of each list's 1,000 most frequent words,
+2 to 6 go: "the", "of", "and", "you" and "New", and in Turkish "the" and
+"no".
+
+Measured on words of [Tatoeba](https://tatoeba.org) sentences, 3,000 per
+language, swiped cleanly, against 2.1.0 (words fixed / broken): Dutch
++1/−1, Portuguese +1/−0, Czech, French, German and Italian +0/−1, Danish,
+Polish and Turkish +0/−2, Spanish +0/−0. Every word broken is English or a
+foreign name inside the sentences, such as "truck", "happy" and "Giants".
+Clean swipes rarely let an English word win; it happens on quicker, less
+exact ones.
+
+English stays at 2.1.0. The packages are the 2.1.0 ones put through
+`tools/drop_foreign_words.py --version 2.2.0` in the plugin's repository,
+with each language's Wiktionary words from
+`tools/fetch_dictionary_sources.py --wiktionary`.
+
 ## Version 2.1.0
 
 The words and frequencies of 2.0.0, with two changes:
